@@ -26,3 +26,37 @@ console.log(arr);
 console.log(arr2);
 console.log(arr3);
 */
+
+
+
+// let arr = [10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]];
+
+// let arr2 = arr.map2(e => e);
+
+// console.log(arr);
+// console.log(arr2);
+
+// arr[0] = 1000;
+// arr[5][0] = 2000;
+// arr[5][5][0] = 3000;
+
+
+// console.log(arr);
+// console.log(arr2);
+
+
+
+let arr = [10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]];
+
+let arr2 = arr.deepCloneArray();
+
+console.log(arr);
+console.log(arr2);
+
+arr[0] = 1000;
+arr[5][0] = 2000;
+arr[5][5][0] = 3000;
+
+
+console.log(arr);
+console.log(arr2);

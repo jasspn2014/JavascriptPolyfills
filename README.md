@@ -68,7 +68,7 @@ console.log(arr2);
 console.log(arr3);
 ```
 
-### 2. Array Deep Clone
+### 3. Array Deep Clone
 
 #### Array is also an Object so it also copies by reference due to which change in one leads to change in that copy so Deep Clone is used for Nested Arrays.
 
@@ -92,12 +92,48 @@ Array.prototype.deepCloneArray = function deepCloneArray() {
 };
 ```
 
-#### Example:
+#### Example (Shallow Copy):
 
 ```javascript
-// Creating
+let arr = [10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]];
+
+let arr2 = arr.map2(e => e);
+
+console.log(arr); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
+console.log(arr2); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
+
+
+arr[0] = 1000;
+arr[5][0] = 2000;
+arr[5][5][0] = 3000;
+
+console.log(arr); // 1000,20,30,40,50,[2000,110,120,130,140,[3000,210,220,230,240]]
+console.log(arr2); // 10,20,30,40,50,[2000,110,120,130,140,[3000,210,220,230,240]]
+
+
 ```
 
+#### Due to this shallow Copy change in any nested array will reflect in all copies as you can see in the output first arr[0] is not changed in arr2 but rest are so to avoid this we need a solution for deepcopying.
+
+
+#### Example (Deep Copy):
+```javascript
+let arr = [10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]];
+
+let arr2 = arr.deepCloneArray();
+
+console.log(arr); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
+console.log(arr2); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
+
+
+arr[0] = 1000;
+arr[5][0] = 2000;
+arr[5][5][0] = 3000;
+
+console.log(arr); // 1000,20,30,40,50,[2000,110,120,130,140,[3000,210,220,230,240]]
+console.log(arr2); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
+
+```
 ### 4. Deep Clone Object
 
 #### Deep Cloning a Object.
