@@ -11,12 +11,12 @@ export default function loadPolyfills() {
 
   // 2. Array.filter() - Filter on basis of true or false
 
-  Array.prototype.filter2 = function () {
+  Array.prototype.filter2 = function (cb) {
     let arr = [];
 
     for (let i = 0; i <= this.length; i++) {
-      if (cb(item, index, arr)) {
-        arr.push(item);
+      if (cb(this[i], i, this)) {
+        arr.push(this[i]);
       }
     }
 

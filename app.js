@@ -16,11 +16,11 @@ console.log(arr3);
 */
 
 /* 2. Array. filter
-const arr = [10, 20, 30, 40, 50, 60];
+const arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 
 const arr2 = arr.filter((e) => e % 20 === 0);
 
-const arr3 = arr.filter((e) => e % 20 === 0);
+const arr3 = arr.filter2((e) => e % 20 === 0);
 
 console.log(arr);
 console.log(arr2);
