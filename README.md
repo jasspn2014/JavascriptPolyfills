@@ -95,13 +95,12 @@ Array.prototype.deepCloneArray = function deepCloneArray() {
 #### Example (Shallow Copy):
 
 ```javascript
-let arr = [10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]];
+let arr = [10, 20, 30, 40, 50, [100, 110, 120, 130, 140, [200, 210, 220, 230, 240]]];
 
-let arr2 = arr.map2(e => e);
+let arr2 = arr.map2((e) => e);
 
 console.log(arr); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
 console.log(arr2); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
-
 
 arr[0] = 1000;
 arr[5][0] = 2000;
@@ -109,22 +108,19 @@ arr[5][5][0] = 3000;
 
 console.log(arr); // 1000,20,30,40,50,[2000,110,120,130,140,[3000,210,220,230,240]]
 console.log(arr2); // 10,20,30,40,50,[2000,110,120,130,140,[3000,210,220,230,240]]
-
-
 ```
 
 #### Due to this shallow Copy change in any nested array will reflect in all copies as you can see in the output first arr[0] is not changed in arr2 but rest are so to avoid this we need a solution for deepcopying.
 
-
 #### Example (Deep Copy):
+
 ```javascript
-let arr = [10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]];
+let arr = [10, 20, 30, 40, 50, [100, 110, 120, 130, 140, [200, 210, 220, 230, 240]]];
 
 let arr2 = arr.deepCloneArray();
 
 console.log(arr); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
 console.log(arr2); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
-
 
 arr[0] = 1000;
 arr[5][0] = 2000;
@@ -132,8 +128,8 @@ arr[5][5][0] = 3000;
 
 console.log(arr); // 1000,20,30,40,50,[2000,110,120,130,140,[3000,210,220,230,240]]
 console.log(arr2); // 10,20,30,40,50,[100,110,120,130,140,[200,210,220,230,240]]
-
 ```
+
 ### 4. Deep Clone Object
 
 #### Deep Cloning a Object.
@@ -158,8 +154,62 @@ Object.prototype.deepClone = function deepClone(obj) {
 };
 ```
 
-#### Example:
+#### Example (Shallow Copy):
 
 ```javascript
-// Creating
+let emp = {
+  fname: "Jasmeet",
+  lname: "Singh",
+  address: {
+    lines: {
+      line1: "abcd",
+      line2: "efgh",
+    },
+    city: "wxyz",
+    state: "Maharashtra",
+    country: "India",
+  },
+  contact: ["9876543210", "6123457890", "8123456790"],
+};
+
+let emp2 = emp; // Copied by Reference So change in one will reflect change in other
+
+let emp3 = Object.assign({}, emp); // Shallow Copy So change in address property will be affected
+
+
+emp.address.state = "Uttar Pradesh";
+console.log(emp);
+console.log(emp3);
 ```
+
+#### Due to this shallow Copy change in any nested Object will reflect in all copies as you can see in the output first.
+![Image of Yaktocat](https://github.com/jasspn2014/JavascriptPolyfills/images/shallowop.png)
+
+#### Example (Deep Copy):
+
+```javascript
+let emp = {
+  fname: "Jasmeet",
+  lname: "Singh",
+  address: {
+    lines: {
+      line1: "abcd",
+      line2: "efgh",
+    },
+    city: "wxyz",
+    state: "Maharashtra",
+    country: "India",
+  },
+  contact: ["9876543210", "6123457890", "8123456790"],
+};
+
+
+let emp4 = Object.deepClone(emp);
+emp.address.state = "Uttar Pradesh";
+
+console.log(emp);
+console.log(emp4);
+```
+#### Output for Deep Copy
+![Image of Yaktocat](https://github.com/jasspn2014/JavascriptPolyfills/images/deepop.png)
+
