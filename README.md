@@ -183,7 +183,9 @@ console.log(emp3);
 ```
 
 #### Due to this shallow Copy change in any nested Object will reflect in all copies as you can see in the output first.
-![Shallow Copy Output](https://github.com/jasspn2014/JavascriptPolyfills/blob/master/images/shallowop.PNG)
+<p align="center">
+  <img src="https://github.com/jasspn2014/JavascriptPolyfills/blob/master/images/shallowop.PNG">
+</p>
 
 #### Example (Deep Copy):
 
@@ -211,5 +213,8 @@ console.log(emp);
 console.log(emp4);
 ```
 #### Output for Deep Copy
-![Deep Copy Output](https://github.com/jasspn2014/JavascriptPolyfills/blob/master/images/deepop.PNG)
+<p align="center">
+  <img src="https://github.com/jasspn2014/JavascriptPolyfills/blob/master/images/deepop.PNG">
+</p>
+
 
